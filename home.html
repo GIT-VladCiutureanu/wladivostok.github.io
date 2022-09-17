@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Metoda Backtracking</title>
+  </head>
+  <body>
+    <nav>
+      <div class="Bt">Metoda Backtracking</div>
+      <ul class="navlink">
+        <li>
+          <a href="">Acasa </a>
+        </li>
+        <li>
+          <a href="">Contact </a>
+        </li>
+        <li>
+          <a href="">Despre </a>
+        </li>
+        <li>
+          <a href="">Algoritmi</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="mainbody">
+      <h3>
+        <u>În primul rând...ce este și când folosim metoda backtracking?</u>
+      </h3>
+      <div class="paragraphs">
+      <p>
+        Metoda backtracking poate fi folosită în rezolvarea a diverse probleme.
+        Este o metodă lentă, dar de multe ori este singura pe care o avem la
+        dispoziție!
+      </p>
+      <p>
+        Metoda backtracking poate fi aplicată în rezolvarea problemelor care
+        respectă următoarele condiții:
+        <ul>
+          <li>Soluția poate fi reprezentată printr-un tablou x[ ]=(x[1], x[2], ..., x[n]), fiecare element x[i] aparținând unei mulțimi cunoscute A<sub>i</sub>;</li>
+          <li>Fiecare mulțime A<sub>i</sub> este finită, iar elementele ei se află într-o relație de ordine precizată – de multe ori cele n mulțimi sunt identice;</li>
+          <li>Se cer toate soluțiile problemei sau se cere o anumită soluție care nu poate fi determinată într-un alt mod (de regulă mai rapid).</li>
+        </ul>
+      </p>
+      <h3><u>Cum funcționează această metodă?</u></h3>
+      <p>
+        Algoritmul de tip backtracking construiește vectorul x[ ] (numit vector soluție) astfel:</p>
+
+      <p>Fiecare pas k, începând (de regulă) de la pasul 1, se prelucrează elementul curent x[k] al vectorului soluție:</p>
+      <ol>
+        <li>X[k] primește pe rând valori din mulțimea corespunzătoare A<sub>k</sub>;</li>
+        <li>La fiecare pas se verifică dacă configurația curentă a vectorului soluție poate duce la o soluție finală – dacă valoarea lui x[k] este corectă în raport cu x[1], x[2], … x[k-1]:<ul>
+          <li id="options">Dacă valoarea nu este corectă, elementul curent X[k] primește următoarea valoare din A<sub>k</sub> sau revenim la elementul anterior x[k-1], dacă X[k] a primit toate valorile din A<sub>k</sub> – pas înapoi;</li>
+          <li id="options">Dacă valoarea lui x[k] este corectă (avem o soluție parțială), se verifică existența unei soluții finale a problemei:<ul>
+            <li id="options">Dacă configurația curentă a vectorului soluție x reprezintă soluție finală (de regulă) o afișăm;</li>
+            <li id="options">Dacă nu am identificat o soluție finală trecem la următorul element, x[k+1], și reluăm procesul pentru acest element – pas înainte.</li>
+          </ul></li>
+        </ul>
+
+        </li>
+        <li>Pe măsură ce se construiește, vectorul soluție x[ ] reprezintă o soluție parțială a problemei. Când vectorul soluție este complet construit, avem o soluție finală a problemei.</li>
+      </ol>
+      <h3><u>Cum abordăm o problemă de backtracking?</u></h3>
+      <p class="paragraphs">
+        Pentru a rezolva o problemă de backtracking, trebuie să parcurgem următoarele etape:
+          <ol>
+            <li>Stabilirea mulțimii A<sub>k</sub> din care vor primi valori elementele vectorului de soluție (de exemplu, pentru generarea permutărilor lui 5, mulțimea A<sub>k</sub>={1,2,3,4,5});</li>
+            <li>Stabilirea condițiilor de continuare(condițiile pentru care configurația este generată corect);</li>
+            <li>Stabilirea condițiilor de soluție(condițiile pentru care configurația generată este o soluție validă);</li>
+            <li>Realizarea algoritmului într-un limbaj de programare(C++);</li>
+          </ol>
+      </p>
+      </div>
+      </div>
+  </body>
+</html>
