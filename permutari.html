@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Metoda Backtracking</title>
+  </head>
+  <body>
+    <nav>
+        <div class="Bt">Metoda Backtracking</div>
+        <ul class="navlink">
+          <li>
+            <a href="index.html">Acasă </a>
+          </li>
+          <li>
+            <a href="">Contact </a>
+          </li>
+          <li>
+            <a href="">Despre </a>
+          </li>
+          <li>
+            <div class="subnav">
+              <button class="subnavbtn">Algoritmi <i class="fa fa-caret-down"></i></button>
+              <div class="subnav-content">
+                <ul>
+                 <li><a href="#company">Permutări</a></li>
+                 <li><a href="#team">Aranjamente</a></li>
+                 <li><a href="#careers">Combinări</a></li>
+                 <li><a href="">Submulțimi</a></li>
+                </ul>
+              </div>
+          </li>
+        </ul>
+      </nav>
+    <div class="mainbody">
+        <h3 id="title">Permutări</h3>
+        <div class="paragraphs">
+            <p>
+                Prin permutare a unei mulțimi înțelegem o aranjare a elementelor sale, într-o anumită ordine. Este cunoscut, printre altele, faptul că numărul de permutări ale unei mulțimi cu n elemente este P<sub>n</sub>=n!=1⋅2⋅⋅⋯⋅n. Prin convenție, P<sub>0</sub>=0!=1.
+            </p>
+            <h3>Cerința</h3>
+            <p>
+                Fie un număr natural n. Să se afișeze, în ordine lexicografică, permutările mulțimii {1,2,,⋯,n}.
+            </p>
+            <h3>Pasul 1</h3>
+            <p>Elementele de forma x[k] vor lua valori din A<sub>k</sub>={1,2,...,n}.</p>
+            <h3>Pasul 2</h3>
+            <p>Condițiile de continuare sunt:<ul>
+            <li>X[k] ∉ {x[1],x[2],x[3],...,x[k-1]},k={2,3,...,n}(elementul x[k] trebuie să aibă o valoare diferită față de elementele precedente).</li>
+            </ul>
+            </p>
+            <h3>Pasul 3</h3>
+            <p>Condițiile de soluție sunt:<ul>
+                <li>K=n(vectorul soluție are n elemente)</li>
+            </ul></p>
+            <h3>Pasul 4</h3>
+            <p>Acest algoritm este considerat cel de bază pentru metoda backtracking, astfel ceilalți algoritmi provin din acesta.</p>
+            <div class="text-box">
+                #include &lt;iostream&gt;
+                using namespace std;
+                int x[101],n;
+                int valid(int k)
+                {
+                    int OK=1,i;
+                    for(i=1;i&lt;=k-1;i++)
+                        if(x[k]==x[i])
+                            OK=0;
+                    return OK;
+                }
+                int solutie(int k)
+                {
+                    if(k==n)
+                        return 1;
+                    else
+                        return 0;
+                }
+                void tipar(int k)
+                {
+                    for(int i=1;i&lt;=k;i++)
+                        cout&lt;&lt;x[i]&lt;&lt;&quot; &quot;;
+                    cout&lt;&lt;endl;
+                }
+                void bk(int k)
+                {
+                    int i;
+                    for(i=1;i&lt;=n;i++)
+                    {
+                        x[k]=i;
+                        if(valid(k)==1)
+                        {
+                            if(solutie(k))
+                                tipar(k);
+                            else
+                                bk(k+1);
+                        }
+                    }
+                }
+                int main()
+                {
+                    cin&gt;&gt;n;
+                    bk(1);
+                    return 0;
+                }
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
