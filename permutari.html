@@ -113,6 +113,50 @@
               3 1 2
               3 2 1
             </div>
+            <h3>Probleme/Exerciții propuse</h3>
+            <ol type="1">
+              <li>Utilizând metoda backtracking se generează permutările cuvântului info. Dacă primele trei soluţii generate sunt: fino, fion, fnio care este cea de-a cincea soluţie?
+                <ul type="disc">
+                  <li>Varianta 1 : foin</li>
+                  <li>Varianta 2 : fnoi</li>
+                  <li>Varianta 3 : foni</li>
+                  <li>Varianta 4 : ifon</li>
+                  </li>
+                </ul>
+                <button class="buton" type="button" onclick="document.getElementById('idea').style.display='block'">Rezolvare</button>
+                <p id="idea" style="display: none;">Pentru a rezolva această problemă, vom nota literele astfel: litera "f" va primi valoarea 1, litera "i" va primi valoarea 2, litera "n" va primi valoarea 3, litera "o" va primi valoarea 4. <br>Astfel, răspunsul corect este foin(1 4 3 2) - Varianta 1</p>
+              </li>
+              <li>Se utilizează un algoritm pentru a genera în ordine lexicografică inversă toate permutările mulţimii {1,2,3,4,5}. Primele patru permutări generate sunt: 54321, 54312, 54231, 54213. A cincea permutare este:
+                <ul type="disc">
+                  <li>Varianta 1 : 53421</li>
+                  <li>Varianta 2 : 54321</li>
+                  <li>Varianta 3 : 54132</li>
+                  <li>Varianta 4 : 54123</li>
+                  </li>
+                </ul>
+                <button class="buton" type="button" onclick="document.getElementById('idea2').style.display='block'">Rezolvare</button>
+                <p id="idea2" style="display:none;">Pentru aceste tipuri de probleme, cea mai simplă metodă de rezolvare este încercarea fiecărei variante de răspuns, până când obținem permutarea anterioară.<br>Astfel, răspunsul corect este 54132 - Varianta 3</p>
+              </li>
+              <li>Având la dispoziție cinci flori diferite, lalea, narcisă, mac, frezie, garoafă, se utilizează metoda backtracking pentru a obține toate posibilitățile de a forma un aranjament floral, ştiind că se folosesc toate cele cinci flori şi contează ordinea de aşezare a acestora. Primele patru soluții obținute sunt, în această ordine:
+                <ol type="I">
+                  <li>(lalea, narcisă, mac, frezie, garoafă)</li>
+                  <li>(lalea, narcisă, mac, garoafă, frezie)</li>
+                  <li>(lalea, narcisă, frezie, mac, garoafă)</li>
+                  <li>(lalea, narcisă, frezie, garoafă, mac)</li>
+                </ol>
+                Care este penultima soluție generată? <br>
+                <button class="buton" type="button" onclick="document.getElementById('idea3').style.display='block'">Rezolvare</button>
+                <p id="idea3" style="display:none;">Pe același principiu ca la problema 1, vom nota fiecare floare cu numere de la 1 la 5: lalea va primi numărul 1, narcisă va primi numărul 2, ș.a.m.d. Pentru a genera penultima soluție, mai întâi trebuie să o generăm pe ultima(54321), și după aceea să construim penultima soluție și să verificăm dacă din aceasta se obține ultima soluție.<br>Astfel, răspunsul corect este (garoafă, frezie, mac, lalea, narcisă)(54312) - Varianta 1</p>
+              </li>
+            </ol>
+            <footer>
+              <p>
+                Author: Vlad Ciutureanu
+              </p>
+              <p>
+                All rights reserved Vlad Ciutureanu &copy; - 2022
+              </p>
+            </footer>
         </div>
     </div>
   </body>
