@@ -3,8 +3,10 @@
   padding: 0px;
   line-height: 1.6em;
 }
-html{
-  min-height: 100%;
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .Bt {
@@ -47,6 +49,7 @@ nav {
   margin-right: 5em;
   margin-top: 2.5em;
   text-align: justify;
+  min-height: 100%;
 }
 
 .navlink li {
@@ -156,7 +159,7 @@ footer {
   display: flex;
   font-family: sans-serif;
   color: white;
-  position: absolute;
+  margin-top: auto;
   width: 100%;
   left: 0;
 }
@@ -166,6 +169,7 @@ footer {
   text-shadow: none;
   text-transform: uppercase;
   padding-bottom: 2.5em;
+  
 }
 .buton{
   font-size: 16px;
