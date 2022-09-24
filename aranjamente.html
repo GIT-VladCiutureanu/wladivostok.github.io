@@ -111,7 +111,64 @@
               3 1
               3 2
             </div>
-      
+            <h3>Probleme/Exerciții propuse</h3>
+            <ol type="1">
+              <li>
+                Utilizând metoda backtracking, se generează toate posibilitățile de a expune câte trei mașini produse în
+România, din gama Dacia, din mulţimea {Dokker (negru), Duster (negru), Lodgy (gri), Logan (alb),
+Sandero (roșu)}, astfel încât să nu fie expuse simultan două mașini de aceeași culoare, Sandero să NU
+apară pe prima poziție, iar Logan să NU fie înainte de Dokker sau Duster. Două soluții sunt distincte dacă
+au cel puțin o mașină diferită sau dacă ordinea mașinilor este diferită. Primele cinci soluţii generate sunt,
+în această ordine (Dokker, Lodgy, Logan), (Dokker, Lodgy, Sandero), (Dokker, Logan, Lodgy),
+(Dokker, Logan, Sandero), (Dokker, Sandero, Lodgy). Indicaţi penultima soluție, în ordinea generării
+acestora.
+<ul type="disc">
+  <li>Varianta 1 : Logan, Lodgy, Sandero</li>
+  <li>Varianta 2 : Logan, Sandero, Lodgy</li>
+  <li>Varianta 3 : Lodgy, Dokker, Logan</li>
+  <li>Varianta 4 : Lodgy, Logan, Dokker</li>
+  </li>
+</ul>
+<button class="buton" type="button" onclick="document.getElementById('idea').style.display='block'">Rezolvare</button>
+<p id="idea" style="display: none;">Vom nota fiecare mașină cu numere de la 1 la 5, în ordinea enumerării lor. Pe lângă condiția de continuare generală pentru algoritmul de generare de aranjamente, avem: 1 și 2 să nu fie în aceeași soluție; 5 să nu se afle pe prima poziție; 4 să nu fie înainte de 1 sau de 2.<br>Astfel, răspunsul corect este Logan, Lodgy, Sandero - Varianta 1</p>
+
+              </li>
+              <li>
+                Un sport se desfășoară pe o pistă înghețată, cu o echipă alcătuită din 4 jucători, care sunt, în această
+ordine, lider, secund, vice-skip și skip. Lotul este format din jucătorii din mulțimea {Alin, Bogdan,
+Cristian, Răzvan, Ștefan, Valentin}; Cristian poate fi doar lider, Alin și Valentin pot fi
+doar lider sau secund, Bogdan poate fi doar secund, iar ceilalți doi jucători pot fi doar vice-skip sau skip.
+Două echipe sunt distincte dacă există cel puțin un rol care, în cele două echipe, este atribuit unor
+jucători diferiți. Pentru antrenamente, s-au format echipe în toate formulele posibile, primele șase soluții
+generate fiind, în această ordine: {Alin, Bogdan, Răzvan, Ștefan}, {Alin, Bogdan, Ștefan,
+Răzvan}, {Alin, Valentin, Răzvan, Ștefan}, {Alin, Valentin, Ștefan, Răzvan},
+{Cristian, Alin, Răzvan, Ștefan},{Cristian, Alin, Ștefan, Răzvan}.
+Indicați soluția generată imediat după {Cristian, Valentin, Ștefan, Răzvan}.
+<ul type="disc">
+  <li>Varianta 1 : Cristian, Bogdan, Răzvan, Ștefan</li>
+  <li>Varianta 2 : Cristian, Bogdan, Ștefan, Răzvan</li>
+  <li>Varianta 3 : Valentin, Alin, Răzvan, Ștefan</li>
+  <li>Varianta 4 : Valentin, Bogdan, Ștefan, Răzvan</li>
+</ul>
+<button class="buton" type="button" onclick="document.getElementById('idea2').style.display='block'">Rezolvare</button>
+<p id="idea2" style="display: none;">Vom nota fiecare nume cu numere de la 1 la 6, în ordinea enumerării lor. Pe lângă condiția de continuare generală pentru algoritmul de generare de aranjamente, avem: 3 se poate afla doar pe prima poziție; 1 și 6 se pot afla doar pe prima sau pe a doua poziție; 2 se poate afla doar pe a doua poziție; 5 și 6 se pot afla doar pe pozițiile 3 sau 4.<br>Astfel, răspunsul corect este Valentin, Alin, Răzvan, Ștefan - Varianta 3 </p>
+              </li>
+              <li>
+                Utilizând metoda backtracking se generează toate posibilitățile de a forma șiraguri din câte 3 mărgele de
+culori distincte din mulțimea {roșu,galben,verde,albastru,violet}. Două șiraguri sunt distincte
+dacă diferă prin cel puțin o culoare a mărgelelor sau prin ordinea acestora. Primele patru soluții generate
+sunt, în această ordine: (roșu, galben, verde), (roșu, galben, albastru), (roșu, galben,
+violet), (roșu, verde, galben). Indicați a zecea soluție generată.
+<ul type="disc">
+  <li>Varianta 1 : galben,roșu,verde</li>
+  <li>Varianta 2 : roșu,albastru,violet</li>
+  <li>Varianta 3 : roșu,violet,verde</li>
+  <li>Varianta 4 : roșu,violet,galben</li>
+</ul>
+<button class="buton" type="button" onclick="document.getElementById('idea3').style.display='block'">Rezolvare</button>
+<p id="idea3" style="display: none;">Vom nota fiecare culoare cu numere de la 1 la 5, în ordinea enumerării lor. Nu avem condiții suplimentare. <br>Astfel, răspunsul corect este roșu,violet,galben - Varianta 4</p>
+              </li>
+            </ol>
       
       </div>
       </div>
