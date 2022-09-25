@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Metoda Backtracking</title>
+  </head>
+  <body>
+    <nav>
+        <div class="Bt">Metoda Backtracking</div>
+        <ul class="navlink">
+          <li>
+            <a href="index.html">Acasă </a>
+          </li>
+          <li>
+            <a href="">Contact </a>
+          </li>
+          <li>
+            <a href="">Despre </a>
+          </li>
+          <li>
+            <div class="subnav">
+              <button class="subnavbtn">Algoritmi <i class="fa fa-caret-down"></i></button>
+              <div class="subnav-content">
+                <ul>
+                 <li><a href="permutari.html">Permutări</a></li>
+                 <li><a href="aranjamente.html">Aranjamente</a></li>
+                 <li><a href="#careers">Combinări</a></li>
+                 <li><a href="">Submulțimi</a></li>
+                </ul>
+              </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="mainbody">
+        <h3 id="title">Combinări</h3>
+        <div class="paragraphs">
+            <p>Consideram o mulțime cu A cu n elemente. Prin combinări de k elemente din A înțelegem submulțimile cu k elemente ale multimii A.</p>
+            <p> Numărul acestor combinări este: <br><img style="background-color: white;" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0a3b063431f54bf0aa2ed5596eeef1c9e4d9a303"></p>
+            <h3>Cerința</h3>
+            <p>Fie două numere naturale n și m. Să se afișeze, în ordinea lexicografică, combinări de m elemente din mulțimea {1,2,3,...,n}</p>
+            <h3>Pasul 1</h3>
+            <p>Elementele de forma x[k] vor lua valori din A<sub>k</sub>={1,2,...,n}.</p>
+            <h3>Pasul 2</h3>
+            <p>Condițiile de continuare sunt:<ul>
+                <li>X[k]>x[k−1] , pentru k∈{2,3,…,n}(elementele sunt ordonate strict crescător, implicit toate elementele sunt diferite)</li>
+            </ul></p>
+            <h3>Pasul 3</h3>
+            <p>Condițiile de soluție sunt:<ul>
+                <li>K=m(vectorul soluție are m elemente)</li>
+            </ul></p>
+            <h3>Pasul 4</h3>
+            <div class="text-box">
+                #include &lt;iostream&gt;
+                using namespace std;
+                int x[101],n,m;
+                int valid(int k)
+                {
+                    int OK=1;
+                    if(k&gt;=2&amp;&amp;x[k]&lt;=x[k-1])
+                            OK=0;
+                    return OK;
+                }
+                int solutie(int k)
+                {
+                    if(k==m)
+                        return 1;
+                    else
+                        return 0;
+                }
+                void tipar(int k)
+                {
+                    for(int i=1;i&lt;=k;i++)
+                        cout&lt;&lt;x[i]&lt;&lt;&quot; &quot;;
+                    cout&lt;&lt;endl;
+                }
+                void bk(int k)
+                {
+                    int i;
+                    for(i=1;i&lt;=n;i++)
+                    {
+                        x[k]=i;
+                        if(valid(k)==1)
+                        {
+                            if(solutie(k)==1)
+                                tipar(k);
+                            else
+                                bk(k+1);
+                        }
+                    }
+                }
+                int main()
+                {
+                    cin&gt;&gt;n&gt;&gt;m;
+                    bk(1);
+                    return 0;
+                }
+            </div>
+            <p>De exemplu, pentru n=4 și m=2 se va afișa:</p>
+            <div class="text-box">
+                1 2
+                1 3
+                1 4
+                2 3
+                2 4
+                3 4
+            </div>
+            <h3>Probleme/Exerciții propuse</h3>
+            <ol type="1">
+                <li>Utilizând metoda backtracking, se generează toate modalitățile de a selecta un grup de patru muzee de
+                    vizitat în București, dintre cele aflate în mulțimea {Muzeul de Artă Veche Apuseană (MAVA), Muzeul
+                    Colecțiilor de Artă (MCA), Muzeul Căilor Ferate Române (MCFR), Muzeul Național al Hărților și Cărții
+                    Vechi (MNHCV), Muzeul Național al Literaturii Române (MNLR), Muzeul Național Tehnic (MNT)}. Două
+                    grupuri diferă prin cel puțin un muzeu. Primele cinci soluții generate sunt, în această ordine: (MAVA, MCA,
+                    MCFR, MNHCV), (MAVA, MCA, MCFR, MNLR), (MAVA, MCA, MCFR, MNT), (MAVA, MCA, MNHCV, MNLR),
+                    (MAVA, MCA, MNHCV, MNT). Indicați o enumerare care este generată ca soluție, în această ordine.
+                    <ul type="disc">
+                        <li>Varianta 1 : MNHCV, MNLR, MCFR, MNT</li>
+                        <li>Varianta 2 : MCA, MNHCV, MNLR, MNT</li>
+                        <li>Varianta 3 : MCA, MCFR, MNHCV, MNLR, MNT</li>
+                        <li>Varianta 4 : MAVA, MCA, MNHCV, MCFR</li>
+                      </ul>
+                    <button class="buton" type="button" onclick="document.getElementById('idea').style.display='block'">Rezolvare</button>
+                    <p id="idea" style="display: none;">Vom nota fiecare muzeu cu numere de la 1 la 6. Astfel, va trebui să verificăm care configurație respectă proprietatea combinărilor(elementele ordonate crescător), dar și faptul că sunt 4 elemente într-o soluție. <br>Prin urmare, răspunsul corect este MCA, MNHCV, MNLR, MNT(2,4,5,6) - Varianta 2</p>
+                </li>
+                <li>
+                    Utilizând metoda backtracking, se generează toate modalitățile de forma un grup de patru persoane din
+mulțimea {Ana, Ioana, Lia, Maria, Miruna, Simona}. Două grupuri diferă prin cel puțin o persoană.
+Primele cinci soluții generate sunt, în această ordine: (Ana, Ioana, Lia, Maria), (Ana, Ioana, Lia,
+Miruna), (Ana, Ioana, Lia, Simona), (Ana, Ioana, Maria, Miruna), (Ana, Ioana, Maria,
+Simona). Indicați o enumerare generată ca soluție, în această formă.
+                    <ul type="disc">
+                        <li>Varianta 1 : Ana, Lia, Maria, Miruna, Simona</li>
+                        <li>Varianta 2 : Ioana, Maria, Miruna, Simona</li>
+                        <li>Varianta 3 : Lia, Ioana, Maria, Simona</li>
+                        <li>Varianta 4 : Maria, Miruna, Lia, Simona</li>
+                    </ul>
+                    <button class="buton" type="button" onclick="document.getElementById('idea2').style.display='block'">Rezolvare</button>
+                    <p id="idea2" style="display: none;">Vom nota fiecare nume cu numere de la 1 la 6. Astfel, va trebui să verificăm care configurație respectă proprietatea combinărilor(elementele ordonate crescător), dar și faptul că sunt 4 elemente într-o soluție. <br>Prin urmare, răspunsul corect este Ioana, Maria, Miruna, Simona(2,4,5,6) - Varianta 2</p>
+                </li>
+                <li>
+                    Utilizând metoda backtracking se generează toate numerele din intervalul [10<sup>4</sup>,10<sup>5</sup>), cu cifrele în
+ordine strict crescătoare. Primele trei numere generate sunt 12345, 12346, 12347. Scrieți, în ordinea
+obținerii, ultimele trei numere generate care au prima cifră 4.
+<br>
+<button class="buton" type="button" onclick="document.getElementById('idea3').style.display='block'">Rezolvare</button>
+<p id="idea3" style="display: none;">Această problemă este practic o generare de combinări de 9 elemente luate câte 5. <br>Astfel, ultimele 3 soluții care încep cu 4 sunt, în ordinea generării lor: 45689, 45789, 46789 </p>
+                </li>
+            </ol>
+        </div>
+      </div>
+      <footer>
+        <p>
+          Author: Vlad Ciutureanu
+        </p>
+        <p>
+          All rights reserved Vlad Ciutureanu &copy; - 2022
+        </p>
+      </footer>
+  </body>
+</html>
