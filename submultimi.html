@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Metoda Backtracking</title>
+  </head>
+  <body>
+    <nav>
+        <div class="Bt">Metoda Backtracking</div>
+        <ul class="navlink">
+          <li>
+            <a href="index.html">Acasă </a>
+          </li>
+          <li>
+            <a href="">Contact </a>
+          </li>
+          <li>
+            <a href="">Despre </a>
+          </li>
+          <li>
+            <div class="subnav">
+              <button class="subnavbtn">Algoritmi <i class="fa fa-caret-down"></i></button>
+              <div class="subnav-content">
+                <ul>
+                 <li><a href="permutari.html">Permutări</a></li>
+                 <li><a href="aranjamente.html">Aranjamente</a></li>
+                 <li><a href="combinari.html">Combinări</a></li>
+                 <li><a href="">Submulțimi</a></li>
+                </ul>
+              </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="mainbody">
+        <h3 id="title">Submulțimi</h3>
+        <div class="paragraphs">
+            <p>Prin submulțimea a unei mulțimi A, înțelegem o mulțime B cu proprietatea că B este conținută în A. <br> Este cunoscut, printre altele, că numărul de submulțimi B ai unei mulțimi A este: 2<sup>n</sup>. </p>
+            <h3>Cerința</h3>
+            <p>Se dă un număr natural n. Să se genereze toate submulțimile mulțimii {1,2,3,...,n}.</p>
+            <h3>Pasul 1</h3>
+            <p>Elementele de forma x[k] vor lua valori din A<sub>k</sub>={1,2,...,n}.</p>
+            <h3>Pasul 2</h3>
+            <p>Condițiile de continuare sunt: <ul>
+                <li>X[k]>x[k-1] , pentru k∈{2,3,…,n}(elementele sunt ordonate strict crescător, implicit toate elementele sunt diferite)</li>
+            </ul></p>
+            <h3>Pasul 3</h3>
+            <p>Întrucât submulțimile au lungimi variate, NU avem condiții de soluție.</p>
+            <h3>Pasul 4</h3>
+            <div class="text-box">
+                #include &lt;iostream&gt;
+                using namespace std;
+                int x[101],n;
+                int valid(int k)
+                {
+                    int OK=1;
+                    if(k&gt;=2&amp;&amp;x[k]&lt;=x[k-1])
+                            OK=0;
+                    return OK;
+                }
+                void tipar(int k)
+                {
+                    for(int i=1;i&lt;=k;i++)
+                        cout&lt;&lt;x[i]&lt;&lt;&quot; &quot;;
+                    cout&lt;&lt;endl;
+                }
+                void bk(int k)
+                {
+                    int i;
+                    for(i=1;i&lt;=n;i++)
+                    {
+                        x[k]=i;
+                        if(valid(k)==1)
+                        {
+                                tipar(k);
+                                bk(k+1);
+                        }
+                    }
+                }
+                int main()
+                {
+                    cin&gt;&gt;n;
+                    bk(1);
+                    return 0;
+                }
+            </div>
+            <p>Se observă că submulțimea vidă nu se regăsește printre soluțiile generate cu acest algoritm. Dacă este cazul, afișarea ei se poate face în afara algoritmului de generare.(în block-ul main)</p>
+            <p>De exemplu, pentru n=3 se va afișa:</p>
+            <div class="text-box">
+                1
+                1 2
+                1 2 3
+                1 3
+                2
+                2 3
+                3
+            </div>
+            <h3>Probleme/exerciții propuse</h3>
+            <ol type="1">
+                <li>
+                    Utilizând metoda backtracking se generează toate modalitățile de a prepara o băutură din câte 3 sau 4 tipuri
+                    de fructe distincte din mulțimea {căpșune, mere, pepene, pere, portocale}. Primele patru soluții generate
+                    sunt, în această ordine: (căpșune, mere, pepene), (căpșune, mere, pepene, pere), (căpșune, mere,
+                    pepene, portocale), (căpșune, mere, pere). Indicați cea de a șasea soluție generată.
+                    <ul type="disc">
+                        <li>Varianta 1 : (pepene, pere, portocale) </li>
+                        <li>Varianta 2 : (mere, pepene, pere, portocale)</li>
+                        <li>Varianta 3 : (căpșune, mere, portocale)</li>
+                        <li>Varianta 4 : (căpșune, mere, pere, pepene)</li>
+                      </ul>
+                      <button class="buton" type="button" onclick="document.getElementById('idea').style.display='block'">Rezolvare</button>
+                      <p id="idea" style="display: none;">Vom nota fiecare fruct cu numere de la 1 la 6, în ordinea enumerării lor. Astfel, primele șase soluții vor fi, în această ordine: 1,2,3; 1,2,3,4; 1,2,3,5; 1,2,4; 1,2,4,5; 1,2,5. <br>Prin urmare, răspunsul corect este (căpșune, mere, portocale) - Varianta 3</p>
+
+                </li>
+                <li>
+                    La o sală de sport se organizează antrenamente pentru sporturi din mulțimea
+                    {tenis, fotbal, volei, handbal, baschet}, astfel încât o persoană poate opta pentru un pachet de
+                    antrenamente pentru două sau trei sporturi, dar nu poate alege fotbal și baschet în același pachet.
+                    Utilizând metoda backtracking se generează toate posibilitățile unei persoane de a opta pentru un
+                    pachet de antrenamente în cadrul sălii de sport. Două pachete sunt distincte dacă diferă prin cel puțin
+                    un sport ales. Primele cinci soluții generate sunt, în această ordine:
+                    {tenis, fotbal}, {tenis, fotbal, volei}, {tenis, fotbal, handbal}, {tenis, volei},
+                    {tenis, volei, handbal}. Indicați soluția generată imediat după {fotbal, handbal}. 
+                    <ul type="disc">
+                        <li>Varianta 1 : {volei, handbal} </li>
+                        <li>Varianta 2 : {fotbal, handbal, baschet} </li>
+                        <li>Varianta 3 : {handbal, baschet} </li>
+                        <li>Varianta 4 : {volei, handbal, baschet} </li>
+                      </ul>
+                      <button class="buton" type="button" onclick="document.getElementById('idea2').style.display='block'">Rezolvare</button>
+                    <p id="idea2" style="display: none;">Vom nota fiecare sport cu numere de la 1 la 5, în ordinea enumerării lor. Elementele 2 și 5 nu se pot afla în aceeași configurație. <br> Astfel, după configurația {2,4} , următoarea soluție generată este {3,4} - Varianta 1</p>
+
+                </li>
+                <li>
+                    Utilizând metoda backtracking, se generează toate băuturile obținute amestecând sucurile a cel puțin
+                    două fructe distincte din mulţimea {afine, caise, lămâi, mere, pere}. Primele cinci soluţii obţinute
+                    sunt, în această ordine: (afine, caise), (afine, caise, lămâi), (afine, caise, lămâi, mere),
+                    (afine, caise, lămâi, mere, pere) şi (afine, caise, lămâi, pere). A șasea soluţie este: 
+                    <ul type="disc">
+                        <li>Varianta 1 : (afine, caise, mere) </li>
+                        <li>Varianta 2 : (afine, caise, mere, pere) </li>
+                        <li>Varianta 3 : (afine, mere, pere) </li>
+                        <li>Varianta 4 : (afine, lămâi, mere, pere) </li>
+                      </ul>
+                      <button class="buton" type="button" onclick="document.getElementById('idea3').style.display='block'">Rezolvare</button>
+                    <p id="idea3" style="display: none;">Vom nota fiecare fruct cu numere de la 1 la 6, în ordinea enumerării lor. <br> Astfel, primele șase soluții sunt: 1,2; 1,2,3; 1,2,3,4; 1,2,3,4,5; 1,2,3,5; 1,2,4; - Varianta 1</p> 
+                </li>
+            </ol>
+
+        </div>
+      </div>
+      <footer>
+        <p>
+          Author: Vlad Ciutureanu
+        </p>
+        <p>
+          All rights reserved Vlad Ciutureanu &copy; - 2022
+        </p>
+      </footer>
+  </body>
+</html>
