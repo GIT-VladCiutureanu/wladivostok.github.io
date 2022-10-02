@@ -117,13 +117,13 @@
                     MCFR, MNHCV), (MAVA, MCA, MCFR, MNLR), (MAVA, MCA, MCFR, MNT), (MAVA, MCA, MNHCV, MNLR),
                     (MAVA, MCA, MNHCV, MNT). Indicați o enumerare care este generată ca soluție, în această ordine.
                     <ul type="disc">
-                        <li>Varianta 1 : MNHCV, MNLR, MCFR, MNT</li>
-                        <li>Varianta 2 : MCA, MNHCV, MNLR, MNT</li>
-                        <li>Varianta 3 : MCA, MCFR, MNHCV, MNLR, MNT</li>
-                        <li>Varianta 4 : MAVA, MCA, MNHCV, MCFR</li>
+                        <li>Varianta 1 : (MNHCV, MNLR, MCFR, MNT)</li>
+                        <li>Varianta 2 : (MCA, MNHCV, MNLR, MNT)</li>
+                        <li>Varianta 3 : (MCA, MCFR, MNHCV, MNLR, MNT)</li>
+                        <li>Varianta 4 : (MAVA, MCA, MNHCV, MCFR)</li>
                       </ul>
                     <button class="buton" type="button" onclick="document.getElementById('idea').style.display='block'">Rezolvare</button>
-                    <p id="idea" style="display: none;">Vom nota fiecare muzeu cu numere de la 1 la 6. Astfel, va trebui să verificăm care configurație respectă proprietatea combinărilor(elementele ordonate crescător), dar și faptul că sunt 4 elemente într-o soluție. <br>Prin urmare, răspunsul corect este MCA, MNHCV, MNLR, MNT(2,4,5,6) - Varianta 2</p>
+                    <p id="idea" style="display: none;">Vom nota fiecare muzeu cu numere de la 1 la 6. Astfel, va trebui să verificăm care configurație respectă proprietatea combinărilor(elementele ordonate crescător), dar și faptul că sunt 4 elemente într-o soluție. <br>Prin urmare, răspunsul corect este (MCA, MNHCV, MNLR, MNT)(2,4,5,6) - Varianta 2</p>
                 </li>
                 <li>
                     Utilizând metoda backtracking, se generează toate modalitățile de forma un grup de patru persoane din
@@ -132,13 +132,13 @@ Primele cinci soluții generate sunt, în această ordine: (Ana, Ioana, Lia, Mar
 Miruna), (Ana, Ioana, Lia, Simona), (Ana, Ioana, Maria, Miruna), (Ana, Ioana, Maria,
 Simona). Indicați o enumerare generată ca soluție, în această formă.
                     <ul type="disc">
-                        <li>Varianta 1 : Ana, Lia, Maria, Miruna, Simona</li>
-                        <li>Varianta 2 : Ioana, Maria, Miruna, Simona</li>
-                        <li>Varianta 3 : Lia, Ioana, Maria, Simona</li>
-                        <li>Varianta 4 : Maria, Miruna, Lia, Simona</li>
+                        <li>Varianta 1 : (Ana, Lia, Maria, Miruna, Simona)</li>
+                        <li>Varianta 2 : (Ioana, Maria, Miruna, Simona)</li>
+                        <li>Varianta 3 : (Lia, Ioana, Maria, Simona)</li>
+                        <li>Varianta 4 : (Maria, Miruna, Lia, Simona)</li>
                     </ul>
                     <button class="buton" type="button" onclick="document.getElementById('idea2').style.display='block'">Rezolvare</button>
-                    <p id="idea2" style="display: none;">Vom nota fiecare nume cu numere de la 1 la 6. Astfel, va trebui să verificăm care configurație respectă proprietatea combinărilor(elementele ordonate crescător), dar și faptul că sunt 4 elemente într-o soluție. <br>Prin urmare, răspunsul corect este Ioana, Maria, Miruna, Simona(2,4,5,6) - Varianta 2</p>
+                    <p id="idea2" style="display: none;">Vom nota fiecare nume cu numere de la 1 la 6. Astfel, va trebui să verificăm care configurație respectă proprietatea combinărilor(elementele ordonate crescător), dar și faptul că sunt 4 elemente într-o soluție. <br>Prin urmare, răspunsul corect este (Ioana, Maria, Miruna, Simona)(2,4,5,6) - Varianta 2</p>
                 </li>
                 <li>
                     Utilizând metoda backtracking se generează toate numerele din intervalul [10<sup>4</sup>,10<sup>5</sup>), cu cifrele în
