@@ -83,11 +83,6 @@ h1 {
 body {
   background-color: #033a61;
 }
-
-.subnav {
-  float: left;
-  overflow: hidden;
-}
 .subnav .subnavbtn {
   font-size: 16px;
   border: none;
@@ -102,7 +97,6 @@ body {
 .subnav-content {
   display: none;
   position: absolute;
-  z-index: 1;
   width: 100%;
   background: rgb(2, 0, 36);
   background: linear-gradient(
