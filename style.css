@@ -7,7 +7,7 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #033a61;
+  background-image: url("fundal.jpg");
 }
 
 .Bt {
